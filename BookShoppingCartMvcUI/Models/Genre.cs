@@ -1,0 +1,18 @@
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace BookShoppingCartMvcUI.Models
+{
+    [Table("Genre")] // Fixed typo in Table attribute
+    public class Genre
+    {
+        public int Id { get; set; }
+
+        [Required]
+        [MaxLength(40)]
+        public string GenreName { get; set; }
+
+        // Navigation property to relate genres with books
+        public List<Book> Books { get; set; }
+    }
+}
